@@ -68,7 +68,6 @@ let weather = {
       .then(data => this.displayWeather(data));
   },
   displayWeather: function (data) {
-    console.log('data: ', data);
     if (data.cod == '200') {
       getweather(data);
     } else if (data.cod == '400') {
@@ -90,7 +89,7 @@ document
   .addEventListener('keyup', function (event) {
     if (event.key == 'Enter') weather.search();
   });
-weather.fetchWeather('Greater Noida');
+weather.fetchWeather('Kyiv');
 
 function getweather(data) {
   const { name } = data;
@@ -101,6 +100,7 @@ function getweather(data) {
   document.querySelector('.location-city').innerHTML = 'Weather in ' + name;
   document.querySelector('.icon').style.backgroundImage =
     'url(https://openweathermap.org/img/wn/' + icon + '@2x.png)';
+
   document.querySelector('.temperature-degree').innerHTML = temp + '°C';
   document.querySelector('.weather-description').innerHTML = description;
   document.querySelector('.humidity').innerHTML = 'Humidity: ' + humidity + '%';
