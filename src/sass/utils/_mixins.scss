@@ -1,4 +1,0 @@
-@mixin lh($line-height, $font-size, $size) {
-    line-height: calc($line-height / $font-size);
-    font-size: $size;
-}
